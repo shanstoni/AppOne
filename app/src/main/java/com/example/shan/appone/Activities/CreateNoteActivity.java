@@ -26,9 +26,6 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNotes
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_note);
-        Log.e("Shan","onCreateBlabLa");
-
-
 
         final EditText editTextNoteTitle = (EditText) findViewById(R.id.et_noteTitle);
         final EditText editTextNoteContent =  (EditText) findViewById(R.id.et_noteContent);
@@ -37,11 +34,7 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNotes
         btnAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //NoteModel.createNote(editTextNoteTitle.getText().toString(),editTextNoteContent.getText().toString());
-                Log.e("Shan","before view");
                 createNotePresenter.createNote(editTextNoteTitle.getText().toString(),editTextNoteContent.getText().toString());
-                Log.e("Shan","view");
-
                 Intent mainScreenActivity = new Intent(CreateNoteActivity.this, MainScreenActivity.class);
                 startActivity(mainScreenActivity);
             }

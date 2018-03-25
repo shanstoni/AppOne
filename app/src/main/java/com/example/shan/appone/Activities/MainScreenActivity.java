@@ -73,7 +73,7 @@ public class MainScreenActivity extends AppCompatActivity implements CreateNotes
         //rvNotes.addItemDecoration(itemDecorationHorizontal);
 
 
-//Change layout!
+        //Change layout!
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         // Attach the layout manager to the recycler view
         rvNotes.setLayoutManager(gridLayoutManager);

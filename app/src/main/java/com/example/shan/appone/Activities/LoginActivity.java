@@ -17,6 +17,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //TODO
+
         btnSkipLogin = (Button) findViewById(R.id.btnSkipLogin);
         btnSkipLogin.setOnClickListener(new View.OnClickListener(){
             @Override
