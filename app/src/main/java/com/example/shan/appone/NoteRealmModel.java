@@ -7,16 +7,16 @@ import io.realm.RealmObject;
  */
 
 public class NoteRealmModel extends RealmObject{
-    private String noteTitle;
+    private int noteID;
     private String noteContent;
     private String noteCreateDate;
 
-    public String getNoteTitle() {
-        return noteTitle;
+    public int getNoteID() {
+        return noteID;
     }
 
-    public void setNoteTitle(String noteTitle) {
-        this.noteTitle = noteTitle;
+    public void setNoteID(int noteID) {
+        this.noteID = noteID;
     }
 
     public String getNoteContent() {

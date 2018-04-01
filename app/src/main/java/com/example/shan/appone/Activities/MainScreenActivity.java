@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.shan.appone.MyApplication;
@@ -39,16 +40,20 @@ public class MainScreenActivity extends AppCompatActivity implements CreateNotes
 
         RecyclerView rvNotes = (RecyclerView) findViewById(R.id.rvContacts);
         Context mContext = MyApplication.getContext();
-        NotesAdapterAsMainScreenPresenter adapter = new NotesAdapterAsMainScreenPresenter(mContext, noteRealmModels);
+        final NotesAdapterAsMainScreenPresenter adapter = new NotesAdapterAsMainScreenPresenter(mContext, noteRealmModels);
         rvNotes.setAdapter(adapter);
+        Log.e("Shans","adapter setted");
         rvNotes.setLayoutManager(new LinearLayoutManager(mContext));
         rvNotes.addOnItemTouchListener(new RecyclerItemClickListener(MainScreenActivity.this, rvNotes,
                 new RecyclerItemClickListener.OnItemClickListener() {
 
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(MainScreenActivity.this, "Touched!!", Toast.LENGTH_SHORT).show();
+//                Intent EditNoteAcitivty = new Intent(MainScreenActivity.this, EditNoteAcitivty.class);
+//                startActivity(EditNoteAcitivty);
+
             }
+
 
             @Override
             public void onItemLongClick(View view, int position) {

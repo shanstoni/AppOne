@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -27,14 +28,17 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNotes
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_note);
 
-        final EditText editTextNoteTitle = (EditText) findViewById(R.id.et_noteTitle);
         final EditText editTextNoteContent =  (EditText) findViewById(R.id.et_noteContent);
+
+        editTextNoteContent.requestFocus();
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.showSoftInput(editTextNoteContent,InputMethodManager.SHOW_IMPLICIT);
 
         Button btnAddNote = (Button) findViewById(R.id.button_addNote);
         btnAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createNotePresenter.createNote(editTextNoteTitle.getText().toString(),editTextNoteContent.getText().toString());
+                createNotePresenter.createNote(editTextNoteContent.getText().toString());
                 Intent mainScreenActivity = new Intent(CreateNoteActivity.this, MainScreenActivity.class);
                 startActivity(mainScreenActivity);
             }
@@ -46,7 +50,6 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNotes
         switch (error){
             case "validationError":
                 Toast.makeText(mContext,"Field cannot be empty!",Toast.LENGTH_LONG).show();
-
         }
     }
 

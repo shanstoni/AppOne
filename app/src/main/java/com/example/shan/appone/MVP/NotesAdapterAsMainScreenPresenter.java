@@ -1,13 +1,18 @@
 package com.example.shan.appone.MVP;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.shan.appone.Activities.EditNoteAcitivty;
+import com.example.shan.appone.Activities.MainScreenActivity;
 import com.example.shan.appone.MyApplication;
 import com.example.shan.appone.NoteRealmModel;
 import com.example.shan.appone.R;
@@ -15,9 +20,14 @@ import com.example.shan.appone.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.onClick;
+import static android.R.attr.publicKey;
+
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
 public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<NotesAdapterAsMainScreenPresenter.ViewHolder> {
+
+
 
     private Context mContext;
 
@@ -32,16 +42,18 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
     public NotesAdapterAsMainScreenPresenter(Context context, List<NoteRealmModel> noteRealmModels) {
         mNoteRealmModels = mMainScreenInteractor.getNotes();
         mContext = context;
+        Log.e("shan", "adapter construct");
     }
 
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder{
+
 
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        public TextView nameTextView;
-        public Button messageButton;
+        public TextView noteContentTextView;
+
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
@@ -50,9 +62,38 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
             // to access the context from any ViewHolder instance.
             super(itemView);
 
-            nameTextView = (TextView) itemView.findViewById(R.id.note_title);
+            noteContentTextView = (TextView) itemView.findViewById(R.id.note_content);
+            noteContentTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int itemPosition = getAdapterPosition();
+                    Log.e("Shans","CLICK pos =" + itemPosition);
+                    NoteRealmModel noteRealmModel = mNoteRealmModels.get(itemPosition);
+                    int noteID = noteRealmModel.getNoteID();
+                    Log.e("Shans","ID =" + noteRealmModel.getNoteID());
+                    Intent intent = new Intent(mContext, com.example.shan.appone.Activities.EditNoteAcitivty.class);
+                    intent.putExtra("noteID", noteID);
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+//            noteContentTextView.setOnTouchListener(new View.OnTouchListener() {
+//                @Override
+//                public boolean onTouch(View v, MotionEvent event) {
+//                    int itemPosition = getAdapterPosition();
+//                    Log.e("Shans","TOUCH pos =" + itemPosition);
+//                    NoteRealmModel noteRealmModel = mNoteRealmModels.get(itemPosition);
+//                    Log.e("Shans","ID =" + noteRealmModel.getNoteID());
+//                    Intent EditNoteAcitivty = new Intent(mContext, com.example.shan.appone.Activities.EditNoteAcitivty.class);
+//                    v.getContext().startActivity(EditNoteAcitivty);
+//
+//
+//                    return false;
+//                }
+//            });
 
         }
+
     }
     // Easy access to the context object in the recyclerview
     private Context getContext() {
@@ -74,9 +115,6 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
 
     }
 
-
-
-
     // Involves populating data into the item through holder
     @Override
     public void onBindViewHolder(NotesAdapterAsMainScreenPresenter.ViewHolder viewHolder, int position) {
@@ -84,12 +122,15 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
         NoteRealmModel noteRealmModel = mNoteRealmModels.get(position);
 
         // Set item views based on your views and data model
-        TextView textView = viewHolder.nameTextView;
+        TextView textView = viewHolder.noteContentTextView;
         textView.setText(noteRealmModel.getNoteContent());
 
+
+
+        //Show ID in MainScreen
+        //textView.setText(String.valueOf(noteRealmModel.getNoteID()));
+
     }
-
-
 
     // Returns the total count of items in the list
     @Override
