@@ -12,12 +12,9 @@ public interface CreateNotesContract {
 
     interface mainScreenView{
 
-
-
     }
 
     interface createNotesView{
-
 
         public void onError(String error);
         //public void setPresenter(CreateNotesContract.createNotesPresenter presenter);

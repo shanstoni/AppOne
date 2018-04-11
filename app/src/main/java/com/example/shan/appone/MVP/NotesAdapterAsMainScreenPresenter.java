@@ -27,13 +27,9 @@ import static android.R.attr.publicKey;
 // Note that we specify the custom ViewHolder which gives us access to our views
 public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<NotesAdapterAsMainScreenPresenter.ViewHolder> {
 
-
-
     private Context mContext;
-
     //Cannot be null
     private  MainScreenInteractor mMainScreenInteractor = new MainScreenInteractor(MyApplication.getContext());
-
 
     // Store a member variable for the noteModels
     private List<NoteRealmModel> mNoteRealmModels = new ArrayList<>();
@@ -44,16 +40,13 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
         mContext = context;
         Log.e("shan", "adapter construct");
     }
-
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
         public TextView noteContentTextView;
-
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
@@ -76,24 +69,7 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
                     v.getContext().startActivity(intent);
                 }
             });
-
-//            noteContentTextView.setOnTouchListener(new View.OnTouchListener() {
-//                @Override
-//                public boolean onTouch(View v, MotionEvent event) {
-//                    int itemPosition = getAdapterPosition();
-//                    Log.e("Shans","TOUCH pos =" + itemPosition);
-//                    NoteRealmModel noteRealmModel = mNoteRealmModels.get(itemPosition);
-//                    Log.e("Shans","ID =" + noteRealmModel.getNoteID());
-//                    Intent EditNoteAcitivty = new Intent(mContext, com.example.shan.appone.Activities.EditNoteAcitivty.class);
-//                    v.getContext().startActivity(EditNoteAcitivty);
-//
-//
-//                    return false;
-//                }
-//            });
-
         }
-
     }
     // Easy access to the context object in the recyclerview
     private Context getContext() {
@@ -124,8 +100,6 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
         // Set item views based on your views and data model
         TextView textView = viewHolder.noteContentTextView;
         textView.setText(noteRealmModel.getNoteContent());
-
-
 
         //Show ID in MainScreen
         //textView.setText(String.valueOf(noteRealmModel.getNoteID()));

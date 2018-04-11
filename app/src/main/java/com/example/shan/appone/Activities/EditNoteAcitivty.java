@@ -1,6 +1,7 @@
 package com.example.shan.appone.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,20 +31,25 @@ public class EditNoteAcitivty extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note_acitivty);
 
-        int noteID = getIntent().getIntExtra("noteID",0);
+        final int noteID = getIntent().getIntExtra("noteID",0);
         Log.e("Shan", "received ID " + noteID);
+
+        final EditNotePresenter editNotePresenter = new EditNotePresenter(mContext,noteID);
 
         tvCreateNoteDate = (TextView) findViewById(R.id.tv_noteDate);
         etEditNote = (EditText) findViewById(R.id.et_editNote);
 
-        tvCreateNoteDate.setText(EditNotePresenter.getNoteCreateDate);
-        etEditNote.setText(EditNotePresenter.getNoteContent);
+        tvCreateNoteDate.setText(editNotePresenter.getNoteCreateDate());
+        etEditNote.setText(editNotePresenter.getNoteContent());
 
         updateNoteButton = (Button) findViewById(R.id.button_update_note);
         updateNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                Log.e("Shan","klikUpdate");
+                editNotePresenter.updateNoteByID(etEditNote.getText().toString(),noteID);
+                Intent intent = new Intent(EditNoteAcitivty.this,MainScreenActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -51,7 +57,10 @@ public class EditNoteAcitivty extends AppCompatActivity {
         deleteNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                editNotePresenter.deleteNoteByID(noteID);
+                Intent intent = new Intent(EditNoteAcitivty.this, MainScreenActivity.class);
+                startActivity(intent);
+                Toast.makeText(EditNoteAcitivty.this,"Note removed",Toast.LENGTH_SHORT).show();
             }
         });
 

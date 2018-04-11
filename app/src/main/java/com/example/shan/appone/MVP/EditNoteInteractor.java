@@ -32,8 +32,28 @@ public class EditNoteInteractor {
 
         //RealmResults<NoteRealmModel> results = realm.where(NoteRealmModel.class).equalTo("noteID",noteID).findAll();
 
-
         return realm.where(NoteRealmModel.class).equalTo("noteID",noteID).findFirst();
+    }
+
+    public void updateNoteByID(String editNoteContext, int noteID){
+        Realm.init(mContext);
+        realm = Realm.getDefaultInstance();
+
+        NoteRealmModel result =  realm.where(NoteRealmModel.class).equalTo("noteID", noteID).findFirst();
+
+        realm.beginTransaction();
+        result.setNoteContent(editNoteContext);
+        realm.commitTransaction();
+    }
+
+    public void deleteNoteByID(int noteID){
+        Realm.init(mContext);
+        realm = Realm.getDefaultInstance();
+
+        NoteRealmModel result =  realm.where(NoteRealmModel.class).equalTo("noteID", noteID).findFirst();
+        realm.beginTransaction();
+        result.deleteFromRealm();
+        realm.commitTransaction();
     }
 
 

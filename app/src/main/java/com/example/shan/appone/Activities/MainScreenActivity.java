@@ -42,26 +42,20 @@ public class MainScreenActivity extends AppCompatActivity implements CreateNotes
         Context mContext = MyApplication.getContext();
         final NotesAdapterAsMainScreenPresenter adapter = new NotesAdapterAsMainScreenPresenter(mContext, noteRealmModels);
         rvNotes.setAdapter(adapter);
-        Log.e("Shans","adapter setted");
+        Log.e("Shans", "adapter setted");
         rvNotes.setLayoutManager(new LinearLayoutManager(mContext));
         rvNotes.addOnItemTouchListener(new RecyclerItemClickListener(MainScreenActivity.this, rvNotes,
                 new RecyclerItemClickListener.OnItemClickListener() {
 
-            @Override
-            public void onItemClick(View view, int position) {
-//                Intent EditNoteAcitivty = new Intent(MainScreenActivity.this, EditNoteAcitivty.class);
-//                startActivity(EditNoteAcitivty);
+                    @Override
+                    public void onItemClick(View view, int position) {
+                    }
 
-            }
-
-
-            @Override
-            public void onItemLongClick(View view, int position) {
-                Toast.makeText(MainScreenActivity.this, "LONG Touched!!", Toast.LENGTH_SHORT).show();
-            }
-        }));
-
-
+                    @Override
+                    public void onItemLongClick(View view, int position) {
+                        Toast.makeText(MainScreenActivity.this, "LONG Touched!!", Toast.LENGTH_SHORT).show();
+                    }
+                }));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -77,15 +71,10 @@ public class MainScreenActivity extends AppCompatActivity implements CreateNotes
         //rvNotes.addItemDecoration(itemDecorationVertical);
         //rvNotes.addItemDecoration(itemDecorationHorizontal);
 
-
         //Change layout!
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         // Attach the layout manager to the recycler view
         rvNotes.setLayoutManager(gridLayoutManager);
 
     }
-
-
-
-
 }

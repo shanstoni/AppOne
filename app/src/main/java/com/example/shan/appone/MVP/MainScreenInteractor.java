@@ -20,8 +20,6 @@ public class MainScreenInteractor implements MainScreenContract.MainScreenIntera
     Realm realm;
     Context mContext;
 
-
-
     public MainScreenInteractor(Context mContext) {
         this.mContext = mContext;
     }
@@ -44,6 +42,4 @@ public class MainScreenInteractor implements MainScreenContract.MainScreenIntera
         }
         return mNoteRealmModels;
     }
-
-
 }

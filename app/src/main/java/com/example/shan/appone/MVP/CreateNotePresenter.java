@@ -2,6 +2,7 @@ package com.example.shan.appone.MVP;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
 
 import com.example.shan.appone.Activities.CreateNotesContract;
 import com.example.shan.appone.NoteRealmModel;
@@ -21,10 +22,7 @@ public class CreateNotePresenter{
     private CreateNotesContract.createNotesView mCreateNotesView;
     private CreateNoteInteractor createNoteInteractor;
     private Realm realm;
-
-
-
-
+    private View mView;
 
     public CreateNotePresenter(Context context, CreateNotesContract.createNotesView mCreateNotesView) {
         this.mContext = context;
@@ -52,7 +50,4 @@ public class CreateNotePresenter{
             createNoteInteractor.createNote(noteContent,currentDateandTime);
         }
     }
-
-
-
 }
