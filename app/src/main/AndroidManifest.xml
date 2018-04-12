@@ -10,16 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.LoginActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainScreenActivity" />
-        <activity android:name=".Activities.CreateNoteActivity" />
-        <activity android:name=".Activities.EditNoteAcitivty"></activity>
+        <activity android:name=".MainScreenActivity" />
+        <activity android:name=".CreateNoteActivity" />
+        <activity android:name=".EditNoteAcitivty"></activity>
     </application>
 
 </manifest>

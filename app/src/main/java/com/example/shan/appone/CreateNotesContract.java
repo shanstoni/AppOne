@@ -1,8 +1,4 @@
-package com.example.shan.appone.Activities;
-
-import android.view.View;
-
-import com.example.shan.appone.MVP.CreateNotePresenter;
+package com.example.shan.appone;
 
 /**
  * Created by shan on 18.03.2018.

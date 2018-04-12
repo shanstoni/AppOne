@@ -1,12 +1,7 @@
-package com.example.shan.appone.MVP;
+package com.example.shan.appone;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Button;
-
-import com.example.shan.appone.NoteRealmModel;
-
-import io.realm.Realm;
 
 /**
  * Created by shan on 28.03.2018.

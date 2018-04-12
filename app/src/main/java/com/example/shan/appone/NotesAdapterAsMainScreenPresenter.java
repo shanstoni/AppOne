@@ -1,27 +1,16 @@
-package com.example.shan.appone.MVP;
+package com.example.shan.appone;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-
-import com.example.shan.appone.Activities.EditNoteAcitivty;
-import com.example.shan.appone.Activities.MainScreenActivity;
-import com.example.shan.appone.MyApplication;
-import com.example.shan.appone.NoteRealmModel;
-import com.example.shan.appone.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.attr.onClick;
-import static android.R.attr.publicKey;
 
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
@@ -64,7 +53,7 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
                     NoteRealmModel noteRealmModel = mNoteRealmModels.get(itemPosition);
                     int noteID = noteRealmModel.getNoteID();
                     Log.e("Shans","ID =" + noteRealmModel.getNoteID());
-                    Intent intent = new Intent(mContext, com.example.shan.appone.Activities.EditNoteAcitivty.class);
+                    Intent intent = new Intent(mContext, EditNoteAcitivty.class);
                     intent.putExtra("noteID", noteID);
                     v.getContext().startActivity(intent);
                 }

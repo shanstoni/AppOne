@@ -1,8 +1,8 @@
-package com.example.shan.appone.MVP;
+package com.example.shan.appone;
 
 import android.content.Context;
 
-import com.example.shan.appone.Activities.MainScreenContract;
+import com.example.shan.appone.MainScreenContract;
 import com.example.shan.appone.NoteRealmModel;
 
 import java.util.ArrayList;

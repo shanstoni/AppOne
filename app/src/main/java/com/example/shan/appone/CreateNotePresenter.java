@@ -1,11 +1,8 @@
-package com.example.shan.appone.MVP;
+package com.example.shan.appone;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
-
-import com.example.shan.appone.Activities.CreateNotesContract;
-import com.example.shan.appone.NoteRealmModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

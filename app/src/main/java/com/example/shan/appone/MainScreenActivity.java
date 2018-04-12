@@ -1,4 +1,4 @@
-package com.example.shan.appone.Activities;
+package com.example.shan.appone;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,17 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
-
-import com.example.shan.appone.MyApplication;
-import com.example.shan.appone.NoteRealmModel;
-import com.example.shan.appone.MVP.NotesAdapterAsMainScreenPresenter;
-import com.example.shan.appone.R;
-import com.example.shan.appone.RecyclerItemClickListener;
 
 import java.util.List;
 
@@ -68,13 +60,13 @@ public class MainScreenActivity extends AppCompatActivity implements CreateNotes
 
         RecyclerView.ItemDecoration itemDecorationVertical = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         RecyclerView.ItemDecoration itemDecorationHorizontal = new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL);
-        //rvNotes.addItemDecoration(itemDecorationVertical);
-        //rvNotes.addItemDecoration(itemDecorationHorizontal);
+        rvNotes.addItemDecoration(itemDecorationVertical);
+        rvNotes.addItemDecoration(itemDecorationHorizontal);
 
         //Change layout!
-        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        //StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         // Attach the layout manager to the recycler view
-        rvNotes.setLayoutManager(gridLayoutManager);
+        //rvNotes.setLayoutManager(gridLayoutManager);
 
     }
 }

@@ -1,4 +1,4 @@
-package com.example.shan.appone.Activities;
+package com.example.shan.appone;
 
 import com.example.shan.appone.NoteRealmModel;
 

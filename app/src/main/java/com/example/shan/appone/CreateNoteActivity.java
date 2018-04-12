@@ -1,21 +1,17 @@
-package com.example.shan.appone.Activities;
+package com.example.shan.appone;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.shan.appone.MVP.CreateNotePresenter;
-import com.example.shan.appone.R;
 
-
-public class CreateNoteActivity extends AppCompatActivity implements CreateNotesContract.createNotesView{
+public class CreateNoteActivity extends AppCompatActivity implements CreateNotesContract.createNotesView {
 
     private Context mContext;
     private CreateNotesContract.createNotesView mCreateNotesView;

@@ -1,4 +1,4 @@
-package com.example.shan.appone.MVP;
+package com.example.shan.appone;
 
 import android.util.Log;
 
