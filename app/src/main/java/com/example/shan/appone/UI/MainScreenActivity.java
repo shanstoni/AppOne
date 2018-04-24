@@ -39,7 +39,6 @@ public class MainScreenActivity extends AppCompatActivity implements CreateNotes
     Context context = MyApplication.getContext();
     final NotesAdapterAsMainScreenPresenter adapter = new NotesAdapterAsMainScreenPresenter(context, mNoteRealmModels);
     rvNotes.setAdapter(adapter);
-    Log.e("Shans", "adapter setted");
     rvNotes.setLayoutManager(new LinearLayoutManager(context));
     rvNotes.addOnItemTouchListener(new RecyclerItemClickListener(MainScreenActivity.this, rvNotes,
             new RecyclerItemClickListener.OnItemClickListener() {
@@ -74,7 +73,7 @@ public class MainScreenActivity extends AppCompatActivity implements CreateNotes
 
 
     @Override
-    public void onError(String error) {
+    public void onErrorMessage(String error) {
 
     }
 }

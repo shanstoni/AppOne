@@ -24,9 +24,6 @@ public class CreateNoteInteractor {
 
         Realm.init(mContext);
         realm = Realm.getDefaultInstance();
-
-        Log.e("Shan","dodaje do bazy");
-
         realm.beginTransaction();
 
 //        realm.executeTransactionAsync(new Realm.Transaction() {

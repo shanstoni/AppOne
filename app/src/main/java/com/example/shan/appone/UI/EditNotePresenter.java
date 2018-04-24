@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.shan.appone.Data.NoteRealmModel;
+import com.example.shan.appone.Utils.EditNoteContract;
 import com.example.shan.appone.Utils.EditNoteInteractor;
 
 /**
@@ -12,14 +13,16 @@ import com.example.shan.appone.Utils.EditNoteInteractor;
 
 public class EditNotePresenter {
 
-    Context mContext;
+    private Context mContext;
     int mNoteID;
-    NoteRealmModel mNoteRealmModel;
+    private NoteRealmModel mNoteRealmModel;
+    private EditNoteContract.View mView;
 
     EditNoteInteractor editNoteInteractor =  new EditNoteInteractor(mContext);
 
-    public EditNotePresenter(Context mContext, int noteID) {
+    public EditNotePresenter(Context mContext, int noteID, EditNoteContract.View mView) {
         this.mContext = mContext;
+        this.mView = mView;
         mNoteRealmModel = editNoteInteractor.getNoteByID(noteID);
         setmNoteID(noteID);
     }
@@ -36,8 +39,7 @@ public class EditNotePresenter {
 
     public void updateNoteByID(String editNoteContent, int noteID){
         if (editNoteContent.isEmpty()) {
-            Log.v("Shan","empty content? = "+editNoteContent);
-            //TODO onError
+            mView.onErrorMessage("emptyNote");
         } else {
            editNoteInteractor.updateNoteByID(editNoteContent,noteID);
         }

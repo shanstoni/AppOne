@@ -34,7 +34,6 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
     public NotesAdapterAsMainScreenPresenter(Context context, List<NoteRealmModel> noteRealmModels) {
         mNoteRealmModels = mMainScreenInteractor.getNotes();
         mContext = context;
-        Log.e("shan", "adapter construct");
     }
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
@@ -56,10 +55,8 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
                 @Override
                 public void onClick(View v) {
                     int itemPosition = getAdapterPosition();
-                    Log.e("Shans","CLICK pos =" + itemPosition);
                     NoteRealmModel noteRealmModel = mNoteRealmModels.get(itemPosition);
                     int noteID = noteRealmModel.getNoteID();
-                    Log.e("Shans","ID =" + noteRealmModel.getNoteID());
                     Intent intent = new Intent(mContext, EditNoteAcitivty.class);
                     intent.putExtra("noteID", noteID);
                     v.getContext().startActivity(intent);

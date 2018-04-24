@@ -12,8 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shan.appone.R;
+import com.example.shan.appone.Utils.EditNoteContract;
 
-public class EditNoteAcitivty extends AppCompatActivity {
+public class EditNoteAcitivty extends AppCompatActivity implements EditNoteContract.View {
 
     private TextView tvCreateNoteDate;
     private EditText etEditNote;
@@ -27,9 +28,8 @@ public class EditNoteAcitivty extends AppCompatActivity {
         setContentView(R.layout.activity_edit_note_acitivty);
 
         final int noteID = getIntent().getIntExtra("noteID",0);
-        Log.e("Shan", "received ID " + noteID);
 
-        final EditNotePresenter editNotePresenter = new EditNotePresenter(mContext,noteID);
+        final EditNotePresenter editNotePresenter = new EditNotePresenter(mContext,noteID,this);
 
         tvCreateNoteDate = (TextView) findViewById(R.id.tv_noteDate);
         etEditNote = (EditText) findViewById(R.id.et_editNote);
@@ -41,7 +41,6 @@ public class EditNoteAcitivty extends AppCompatActivity {
         updateNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("Shan","klikUpdate");
                 editNotePresenter.updateNoteByID(etEditNote.getText().toString(),noteID);
                 Intent intent = new Intent(EditNoteAcitivty.this,MainScreenActivity.class);
                 startActivity(intent);
@@ -59,5 +58,13 @@ public class EditNoteAcitivty extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onErrorMessage(String error) {
+        switch (error){
+            case "emptyNote":
+                Toast.makeText(getApplicationContext(),"Note cannot be empty!",Toast.LENGTH_LONG).show();
+        }
     }
 }

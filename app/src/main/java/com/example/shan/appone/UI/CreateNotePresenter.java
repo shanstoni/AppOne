@@ -25,8 +25,6 @@ public class CreateNotePresenter{
     public CreateNotePresenter(Context context, CreateNotesContract.View mView) {
         this.mContext = context;
         this.mView = mView;
-
-        //mView.setPresenter(this);
     }
 
     public void createNote(String noteContent){
@@ -36,13 +34,10 @@ public class CreateNotePresenter{
         Realm.init(mContext);
         realm = Realm.getDefaultInstance();
 
-        Log.e("Shan","przed walidacja");
-
         if (noteContent.isEmpty()){
-            //mView.onError("validationError");
-            Log.e("Shan","po walidacji");
+            mView.onErrorMessage("validationError");
         } else {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String currentDateandTime = simpleDateFormat.format(new Date());
 
             createNoteInteractor.createNote(noteContent,currentDateandTime);

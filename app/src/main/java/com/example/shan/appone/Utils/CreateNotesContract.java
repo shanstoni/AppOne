@@ -12,9 +12,7 @@ public interface CreateNotesContract {
 
     interface View {
 
-        public void onError(String error);
-        //public void setPresenter(CreateNotesContract.createNotesPresenter presenter);
-
+        public void onErrorMessage(String error);
     }
 
     interface createNotesPresenter{

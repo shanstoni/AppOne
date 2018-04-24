@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +17,6 @@ import com.example.shan.appone.R;
 public class CreateNoteActivity extends AppCompatActivity implements CreateNotesContract.View {
 
     private Context mContext;
-    private CreateNotesContract.View mView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +45,10 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNotes
     }
 
     @Override
-    public void onError(String error){
+    public void onErrorMessage(String error){
         switch (error){
             case "validationError":
-                Toast.makeText(mContext,"Field cannot be empty!",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Field cannot be empty!",Toast.LENGTH_LONG).show();
         }
     }
 
