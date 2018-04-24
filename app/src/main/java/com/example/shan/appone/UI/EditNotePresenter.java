@@ -1,7 +1,10 @@
-package com.example.shan.appone;
+package com.example.shan.appone.UI;
 
 import android.content.Context;
 import android.util.Log;
+
+import com.example.shan.appone.Data.NoteRealmModel;
+import com.example.shan.appone.Utils.EditNoteInteractor;
 
 /**
  * Created by shan on 28.03.2018.

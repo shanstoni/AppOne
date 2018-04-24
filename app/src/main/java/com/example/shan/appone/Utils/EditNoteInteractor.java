@@ -1,14 +1,10 @@
-package com.example.shan.appone;
+package com.example.shan.appone.Utils;
 
 import android.content.Context;
 
-import com.example.shan.appone.NoteRealmModel;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.shan.appone.Data.NoteRealmModel;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 
 /**
  * Created by shan on 28.03.2018.

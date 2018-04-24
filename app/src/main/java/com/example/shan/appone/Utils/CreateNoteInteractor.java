@@ -1,8 +1,8 @@
-package com.example.shan.appone;
+package com.example.shan.appone.Utils;
 
 import android.util.Log;
 
-import com.example.shan.appone.NoteRealmModel;
+import com.example.shan.appone.Data.NoteRealmModel;
 
 import io.realm.Realm;
 

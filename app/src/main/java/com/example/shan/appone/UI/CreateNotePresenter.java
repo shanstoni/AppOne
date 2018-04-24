@@ -1,8 +1,10 @@
-package com.example.shan.appone;
+package com.example.shan.appone.UI;
 
 import android.content.Context;
 import android.util.Log;
-import android.view.View;
+
+import com.example.shan.appone.Utils.CreateNoteInteractor;
+import com.example.shan.appone.Utils.CreateNotesContract;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,16 +18,15 @@ import io.realm.Realm;
 public class CreateNotePresenter{
 
     private Context mContext;
-    private CreateNotesContract.createNotesView mCreateNotesView;
+    private CreateNotesContract.View mView;
     private CreateNoteInteractor createNoteInteractor;
     private Realm realm;
-    private View mView;
 
-    public CreateNotePresenter(Context context, CreateNotesContract.createNotesView mCreateNotesView) {
+    public CreateNotePresenter(Context context, CreateNotesContract.View mView) {
         this.mContext = context;
-        this.mCreateNotesView = mCreateNotesView;
+        this.mView = mView;
 
-        //mCreateNotesView.setPresenter(this);
+        //mView.setPresenter(this);
     }
 
     public void createNote(String noteContent){
@@ -38,7 +39,7 @@ public class CreateNotePresenter{
         Log.e("Shan","przed walidacja");
 
         if (noteContent.isEmpty()){
-            //mCreateNotesView.onError("validationError");
+            //mView.onError("validationError");
             Log.e("Shan","po walidacji");
         } else {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");

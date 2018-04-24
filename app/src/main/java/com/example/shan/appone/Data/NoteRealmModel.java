@@ -1,4 +1,4 @@
-package com.example.shan.appone;
+package com.example.shan.appone.Data;
 
 import io.realm.RealmObject;
 

@@ -1,4 +1,4 @@
-package com.example.shan.appone;
+package com.example.shan.appone.UI;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.shan.appone.Data.NoteRealmModel;
+import com.example.shan.appone.Utils.MainScreenInteractor;
+import com.example.shan.appone.R;
+import com.example.shan.appone.Utils.MyApplication;
+
 import java.util.ArrayList;
 import java.util.List;
+
+//TODO consider to split adapter and presenter
 
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
@@ -18,7 +25,7 @@ public class NotesAdapterAsMainScreenPresenter extends RecyclerView.Adapter<Note
 
     private Context mContext;
     //Cannot be null
-    private  MainScreenInteractor mMainScreenInteractor = new MainScreenInteractor(MyApplication.getContext());
+    private MainScreenInteractor mMainScreenInteractor = new MainScreenInteractor(MyApplication.getContext());
 
     // Store a member variable for the noteModels
     private List<NoteRealmModel> mNoteRealmModels = new ArrayList<>();

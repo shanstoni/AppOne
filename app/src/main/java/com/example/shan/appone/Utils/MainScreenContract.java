@@ -1,6 +1,6 @@
-package com.example.shan.appone;
+package com.example.shan.appone.Utils;
 
-import com.example.shan.appone.NoteRealmModel;
+import com.example.shan.appone.Data.NoteRealmModel;
 
 import java.util.List;
 
@@ -9,6 +9,9 @@ import java.util.List;
  */
 
 public interface MainScreenContract {
+
+    interface View { }
+    interface Presenter {}
 
     interface MainScreenInteractor{
 

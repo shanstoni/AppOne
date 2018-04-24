@@ -1,4 +1,4 @@
-package com.example.shan.appone;
+package com.example.shan.appone.UI;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.shan.appone.R;
 
 public class EditNoteAcitivty extends AppCompatActivity {
 

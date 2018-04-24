@@ -1,4 +1,4 @@
-package com.example.shan.appone;
+package com.example.shan.appone.Utils;
 
 /**
  * Created by shan on 03.03.2018.

@@ -1,9 +1,8 @@
-package com.example.shan.appone;
+package com.example.shan.appone.Utils;
 
 import android.content.Context;
 
-import com.example.shan.appone.MainScreenContract;
-import com.example.shan.appone.NoteRealmModel;
+import com.example.shan.appone.Data.NoteRealmModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,22 +18,17 @@ public class MainScreenInteractor implements MainScreenContract.MainScreenIntera
 
     Realm realm;
     Context mContext;
+    private List<NoteRealmModel> mNoteRealmModels = new ArrayList<>();
 
     public MainScreenInteractor(Context mContext) {
         this.mContext = mContext;
+        Realm.init(mContext);
+        realm = Realm.getDefaultInstance();
     }
-
-    // Store a member variable for the noteRealmModels
-    private List<NoteRealmModel> mNoteRealmModels = new ArrayList<>();
 
     public List<NoteRealmModel> getNotes(){
 
-        Realm.init(mContext);
-        realm = Realm.getDefaultInstance();
-
         RealmResults<NoteRealmModel> results = realm.where(NoteRealmModel.class).findAll();
-
-        //text.setText("");
 
         for(NoteRealmModel noteRealmModel : results){
             //text.append(noteRealmModel. + " " + noteRealmModel.getName() + "\n");
